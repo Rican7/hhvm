@@ -3,4 +3,8 @@ language: php
 php:
   - hhvm
 
-script: ./hphp/test/frameworks/run.php klein
+before_script: 
+  - cd hphp/test/frameworks
+  - composer install
+
+script: ./run.php klein
