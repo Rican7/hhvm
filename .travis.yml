@@ -7,7 +7,8 @@ before_script:
   - cd hphp/test/frameworks
   - wget http://getcomposer.org/composer.phar -P . 2>&1
   - hhvm composer.phar self-update
-  - hhvm -r "file_put_contents(__DIR__.'/composer.json.md5', md5(__DIR__.'/composer.json'));"
+  - echo "<?hh file_put_contents(__DIR__.'/composer.json.md5', md5(__DIR__.'/composer.json'));" > ./md5_pls
+  - hhvm ./md5_pls
   - hhvm composer.phar install --dev
 
 script: hhvm run.php klein
