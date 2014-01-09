@@ -4,7 +4,8 @@ php:
   - hhvm
 
 before_script: 
+  - composer self-update
   - cd hphp/test/frameworks
-  - composer install
+  - composer install --dev
 
-script: ./run.php klein
+script: hhvm run.php klein
